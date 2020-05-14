@@ -20,16 +20,20 @@ __published:	// IDE-managed Components
         TShape *Shape1;
         TImage *Image5;
         TImage *Image6;
-        TBitBtn *BitBtn1;
-        TBitBtn *BitBtn2;
-        TBitBtn *BitBtn3;
         TImage *Image3;
-        TBitBtn *BitBtn4;
         TImage *Image4;
-        void __fastcall BitBtn1Click(TObject *Sender);
-        void __fastcall BitBtn2Click(TObject *Sender);
-        void __fastcall BitBtn3Click(TObject *Sender);
-        void __fastcall BitBtn4Click(TObject *Sender);
+        TImage *Image7;
+        TImage *Image8;
+        TImage *Image9;
+        TImage *Image10;
+        void __fastcall Image7MouseDown(TObject *Sender,
+          TMouseButton Button, TShiftState Shift, int X, int Y);
+        void __fastcall Image8MouseDown(TObject *Sender,
+          TMouseButton Button, TShiftState Shift, int X, int Y);
+        void __fastcall Image9MouseDown(TObject *Sender,
+          TMouseButton Button, TShiftState Shift, int X, int Y);
+        void __fastcall Image10MouseDown(TObject *Sender,
+          TMouseButton Button, TShiftState Shift, int X, int Y);
 
 private:	// User declarations
 public:		// User declarations

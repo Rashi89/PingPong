@@ -16,36 +16,39 @@ __fastcall TForm2::TForm2(TComponent* Owner)
 {
 }
 //---------------------------------------------------------------------------
-void __fastcall TForm2::BitBtn1Click(TObject *Sender)
-{
-     Form1->Visible = true;
-     Form2->Visible = false;
 
+void __fastcall TForm2::Image7MouseDown(TObject *Sender,
+      TMouseButton Button, TShiftState Shift, int X, int Y)
+{
+         Form1->Visible = true;
+         Form2->Visible = false;
 }
 //---------------------------------------------------------------------------
 
-
-void __fastcall TForm2::BitBtn2Click(TObject *Sender)
+void __fastcall TForm2::Image8MouseDown(TObject *Sender,
+      TMouseButton Button, TShiftState Shift, int X, int Y)
 {
-        Form2->Close();        
-}
-//---------------------------------------------------------------------------
-
-void __fastcall TForm2::BitBtn3Click(TObject *Sender)
-{
-       Application->MessageBox("Gracz czerwony steruje klawiszami: W i S.\n"
+             Application->MessageBox("Gracz czerwony steruje klawiszami: W i S.\n"
 		    "Gracz niebieski steruje klawiszami: strza³ka w górê i strza³ka w dó³ ","Sterowanie",
                     MB_OK | MB_ICONINFORMATION);
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TForm2::BitBtn4Click(TObject *Sender)
+void __fastcall TForm2::Image9MouseDown(TObject *Sender,
+      TMouseButton Button, TShiftState Shift, int X, int Y)
 {
-     Application->MessageBox("ZASADY\n"
+    Application->MessageBox("ZASADY\n"
                  "1. Ka¿dy z graczy steruje swoj¹ paletk¹.\n"
                  "2. Kiedy pi³ka odbije siê na brzegach paletki, wówczas\n"
                  "    pi³eczka zmieni k¹t odbicia i przyspieszy\n"
                  "3. Po 9 odbiciach pi³eczka przyspieszy\n","Zasady",MB_OK | MB_ICONINFORMATION);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm2::Image10MouseDown(TObject *Sender,
+      TMouseButton Button, TShiftState Shift, int X, int Y)
+{
+               Form2->Close();  
 }
 //---------------------------------------------------------------------------
 

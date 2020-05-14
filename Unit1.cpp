@@ -10,8 +10,8 @@
 #pragma package(smart_init)
 #pragma resource "*.dfm"
 
- int wspolrzedna_x = -28;
- int wspolrzedna_y = -28;
+ int wspolrzedna_x = -8;
+ int wspolrzedna_y = -8;
  int punkty_lewego = 0;
  int punkty_prawego = 0;
  int ilosc_odbic = 0;
@@ -37,8 +37,8 @@
         Pileczka->Top = Tlo->Height/2;
         wspolrzedna_x = -8;
         wspolrzedna_y = -8;
-        Paletka_Lewa->Top = Tlo->Height/2;
-        Paletka_Prawa->Top = Tlo->Height/2;
+        Paletka_Lewa->Top = 192;
+        Paletka_Prawa->Top = 192;
         poruszanie_pilki->Interval = 20;
  }
 
@@ -57,8 +57,8 @@
            ilosc_odbic = 0;
            Pileczka->Left = Tlo->Width/2;
            Pileczka->Top = Tlo->Height/2;
-           Paletka_Lewa->Top = Tlo->Height/2;
-           Paletka_Prawa->Top = Tlo->Height/2;
+           Paletka_Lewa->Top = 192;
+           Paletka_Prawa->Top = 192;
            punktacja_prawego="";
            punktacja_lewego="";
            suma_odbic="";
@@ -93,7 +93,6 @@ void __fastcall TForm1::poruszanie_pilkiTimer(TObject *Sender)
 {
         Pileczka->Visible = true;
 
-
         Pileczka->Left += wspolrzedna_x;
 
         Pileczka->Top += wspolrzedna_y;
@@ -115,8 +114,9 @@ void __fastcall TForm1::poruszanie_pilkiTimer(TObject *Sender)
                 }
                 else poruszanie_pilki->Interval = 20;
         }
+
         //skucha dla gracza lewego i prawego
-        if(Pileczka->Left <= Paletka_Lewa->Left+Paletka_Lewa->Width-20)
+        if(Pileczka->Left+Pileczka->Width < Paletka_Lewa->Left+Paletka_Lewa->Width-20)
         {
                 poruszanie_pilki->Enabled = false;
                 Pileczka->Visible = false;
@@ -143,7 +143,7 @@ void __fastcall TForm1::poruszanie_pilkiTimer(TObject *Sender)
                         reset(Pileczka,poruszanie_pilki,Tlo,punkty_lewego,punkty_prawego,ilosc_odbic,Paletka_Lewa,Paletka_Prawa);
                 }
         }
-        else if(Pileczka->Left+Pileczka->Width >= Paletka_Prawa->Left+20)
+        else if(Pileczka->Left > Paletka_Prawa->Left+Paletka_Prawa->Width+20)
         {      {
                 poruszanie_pilki->Enabled = false;
                 Pileczka->Visible = false;
@@ -170,57 +170,25 @@ void __fastcall TForm1::poruszanie_pilkiTimer(TObject *Sender)
                 }
                 }
         }
-        else if(Paletka_Lewa->Left+Paletka_Lewa->Width > Pileczka->Left)
+        else if(Pileczka->Left < Paletka_Lewa->Left)
                    {
-                        if(Paletka_Lewa->Top-Pileczka->Height/2 < Pileczka->Top && Paletka_Lewa->Top+Paletka_Lewa->Height/3 > Pileczka->Top)
-                        {
-                           if(wspolrzedna_x<0&&wspolrzedna_x>=-20)
+                        if(Paletka_Lewa->Top-Pileczka->Width/2 < Pileczka->Top && Paletka_Lewa->Top+Paletka_Lewa->Height+Pileczka->Width/2 > Pileczka->Top)
                            {
                            wspolrzedna_x=-wspolrzedna_x;
-
-                           }
-                           else if(wspolrzedna_x<0&&wspolrzedna_x <-20) wspolrzedna_x = -10;
                            ilosc_odbic +=1;
                            suma_odbic = IntToStr(ilosc_odbic);
                            Label2->Caption = "Licznik odbic: "+suma_odbic;
-                        }
-                        else if(Paletka_Lewa->Top+Paletka_Lewa->Height/3 <= Pileczka->Top && Paletka_Lewa->Top+2*Paletka_Lewa->Height/3 >= Pileczka ->Top)
-                        {
-                           if(wspolrzedna_x<0&&wspolrzedna_x >=-20)
-                           {
-                           wspolrzedna_x=-1.5*wspolrzedna_x;
                            }
-                           else if(wspolrzedna_x<0&&wspolrzedna_x < -20) wspolrzedna_x = -10;
-                           ilosc_odbic +=1;
-                           suma_odbic = IntToStr(ilosc_odbic);
-                           Label2->Caption = "Licznik odbic: "+suma_odbic;
-                        }
-                        else if(Paletka_Lewa->Top+2*Paletka_Lewa->Height/3 < Pileczka ->Top  &&  Paletka_Lewa->Top+Paletka_Lewa->Height+Pileczka->Height/2 > Pileczka->Top)
-                        {
-                           if(wspolrzedna_x<0&&wspolrzedna_x>=-20)
-                           {
-                           wspolrzedna_x=-wspolrzedna_x;
-                           }
-                           else if(wspolrzedna_x<0&&wspolrzedna_x <-20) wspolrzedna_x = -10;
-                           ilosc_odbic +=1;
-                           suma_odbic = IntToStr(ilosc_odbic);
-                           Label2->Caption = "Licznik odbic: "+suma_odbic;
-                        }
                    }
        else if(Pileczka->Left+Pileczka->Width > Paletka_Prawa->Left)
         {
-                if(Paletka_Prawa->Top-Pileczka->Height/2 < Pileczka->Top && Paletka_Prawa->Top+Paletka_Prawa->Height+Pileczka->Height/2 > Pileczka->Top)
-                {
-                        if(wspolrzedna_x>0&&wspolrzedna_x<=20)
+                           if(Paletka_Prawa->Top-Pileczka->Width/2 < Pileczka->Top+Pileczka->Height && Paletka_Prawa->Top+Paletka_Prawa->Height+Pileczka->Width/2 > Pileczka->Top+Pileczka->Height)
                            {
-                           wspolrzedna_x=-wspolrzedna_x;
-
-                           }
-                           else if(wspolrzedna_x>0&&wspolrzedna_x >20) wspolrzedna_x = 10;
+                           wspolrzedna_x=-1.5*wspolrzedna_x;
                            ilosc_odbic +=1;
                            suma_odbic = IntToStr(ilosc_odbic);
                            Label2->Caption = "Licznik odbic: "+suma_odbic;
-                 }
+                           }
 
 
 
@@ -343,6 +311,7 @@ void __fastcall TForm1::FormCreate(TObject *Sender)
         Label3->Visible = false;
 }
 //---------------------------------------------------------------------------
+
 
 
 
