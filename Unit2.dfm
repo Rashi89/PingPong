@@ -4,7 +4,7 @@ object Form2: TForm2
   BorderIcons = [biSystemMenu]
   BorderStyle = bsToolWindow
   Caption = 'Menu'
-  ClientHeight = 519
+  ClientHeight = 371
   ClientWidth = 467
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -20,7 +20,7 @@ object Form2: TForm2
     Left = 0
     Top = 0
     Width = 467
-    Height = 519
+    Height = 371
     Align = alClient
   end
   object Image1: TImage
@@ -2985,7 +2985,7 @@ object Form2: TForm2
   end
   object Image6: TImage
     Left = 64
-    Top = 152
+    Top = 160
     Width = 32
     Height = 26
     AutoSize = True
@@ -3253,7 +3253,7 @@ object Form2: TForm2
   end
   object Image7: TImage
     Left = 104
-    Top = 144
+    Top = 152
     Width = 241
     Height = 38
     Cursor = crHandPoint

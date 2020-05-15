@@ -26,6 +26,7 @@ __published:	// IDE-managed Components
         TButton *Button2;
         TLabel *Label2;
         TLabel *Label3;
+        TLabel *Label4;
         void __fastcall poruszanie_pilkiTimer(TObject *Sender);
         void __fastcall Gora_LewaTimer(TObject *Sender);
         void __fastcall Dol_LewaTimer(TObject *Sender);

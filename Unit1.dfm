@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 428
-  Top = 433
+  Left = 240
+  Top = 174
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsToolWindow
   Caption = 'Ping Pong'
@@ -315,8 +315,8 @@ object Form1: TForm1
       CC483FCC483FCC483F00}
   end
   object Pileczka: TImage
-    Left = 472
-    Top = 216
+    Left = 480
+    Top = 184
     Width = 32
     Height = 32
     AutoSize = True
@@ -435,6 +435,7 @@ object Form1: TForm1
     Font.Name = 'MS Sans Serif'
     Font.Style = [fsBold]
     ParentFont = False
+    Transparent = True
   end
   object Label2: TLabel
     Left = 432
@@ -448,10 +449,23 @@ object Form1: TForm1
     Font.Name = 'MS Sans Serif'
     Font.Style = []
     ParentFont = False
+    Transparent = True
   end
   object Label3: TLabel
     Left = 320
     Top = 113
+    Width = 10
+    Height = 36
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -31
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label4: TLabel
+    Left = 448
+    Top = 456
     Width = 10
     Height = 36
     Font.Charset = DEFAULT_CHARSET

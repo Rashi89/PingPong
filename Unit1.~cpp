@@ -15,6 +15,7 @@
  int punkty_lewego = 0;
  int punkty_prawego = 0;
  int ilosc_odbic = 0;
+ int szybkosc = 20;
 
  AnsiString punktacja_prawego="";
  AnsiString punktacja_lewego="";
@@ -107,16 +108,33 @@ void __fastcall TForm1::poruszanie_pilkiTimer(TObject *Sender)
         {
           wspolrzedna_y = - wspolrzedna_y;
         }
-        if(ilosc_odbic%3==0&&ilosc_odbic!=0)
+        if(ilosc_odbic%9==0&&ilosc_odbic!=0)
         {
-                if(poruszanie_pilki->Interval >= 19){
-                    poruszanie_pilki->Interval = poruszanie_pilki->Interval-1;
-                }
-                else poruszanie_pilki->Interval = 20;
+            switch (ilosc_odbic/9)
+            {
+             case 1: poruszanie_pilki->Interval = 15;
+             break;
+             case 2: poruszanie_pilki->Interval = 10;
+             break;
+             case 3: poruszanie_pilki->Interval = 8;
+             break;
+             case 4: poruszanie_pilki->Interval = 6;
+             break;
+             case 5: poruszanie_pilki->Interval = 4;
+             break;
+            }
+        }
+        if(wspolrzedna_x>40)
+        {
+           wspolrzedna_x = 20;
+        }
+        if(wspolrzedna_x<-40)
+        {
+         wspolrzedna_x = -20;
         }
 
         //skucha dla gracza lewego i prawego
-        if(Pileczka->Left < Paletka_Lewa->Left+Paletka_Lewa->Width-20)
+        if(Pileczka->Left+Pileczka->Width < Paletka_Lewa->Left+Paletka_Lewa->Width-20)
         {
                 poruszanie_pilki->Enabled = false;
                 Pileczka->Visible = false;
@@ -170,26 +188,59 @@ void __fastcall TForm1::poruszanie_pilkiTimer(TObject *Sender)
                 }
                 }
         }
-        else if(Paletka_Lewa->Left+Paletka_Lewa->Width > Pileczka->Left)
+        else if(Pileczka->Left < Paletka_Lewa->Left)
                    {
-                        if(Paletka_Lewa->Top-Pileczka->Width/2<=Pileczka->Top && Paletka_Lewa->Top+Paletka_Lewa->Height+Pileczka->Width/2>=Pileczka->Top+Pileczka->Height)
+                        if(Paletka_Lewa->Top-Pileczka->Width/2 < Pileczka->Top &&
+                           Paletka_Lewa->Top+Paletka_Lewa->Height/4 > Pileczka->Top)
                            {
-                           wspolrzedna_x=-wspolrzedna_x;
-                           ilosc_odbic +=1;
-                           suma_odbic = IntToStr(ilosc_odbic);
-                           Label2->Caption = "Licznik odbic: "+suma_odbic;
+                                wspolrzedna_x=-wspolrzedna_x;
+                                ilosc_odbic +=1;
+                                suma_odbic = IntToStr(ilosc_odbic);
+                                Label2->Caption = "Licznik odbic: "+suma_odbic;
                            }
+                           else if(Paletka_Lewa->Top+Paletka_Lewa->Height/4 <= Pileczka->Top &&
+                                   Paletka_Lewa->Top+(3*Paletka_Lewa->Height)/4 >= Pileczka->Top)
+                                   {
+                                        wspolrzedna_x=-1.5*wspolrzedna_x;
+                                        ilosc_odbic +=1;
+                                        suma_odbic = IntToStr(ilosc_odbic);
+                                        Label2->Caption = "Licznik odbic: "+suma_odbic;
+                                   }
+                           else if(Paletka_Lewa->Top+(3*Paletka_Lewa->Height)/4 < Pileczka->Top &&
+                                   Paletka_Lewa->Top+Paletka_Lewa->Height+Pileczka->Width/2 > Pileczka->Top)
+                                   {
+                                        wspolrzedna_x=-wspolrzedna_x;
+                                        ilosc_odbic +=1;
+                                        suma_odbic = IntToStr(ilosc_odbic);
+                                        Label2->Caption = "Licznik odbic: "+suma_odbic;
+                                   }
                    }
        else if(Pileczka->Left+Pileczka->Width > Paletka_Prawa->Left)
         {
-                           if(Paletka_Prawa->Top-Pileczka->Width/2<=Pileczka->Top && Paletka_Lewa->Top+Paletka_Lewa->Height+Pileczka->Width/2>=Pileczka->Top+Pileczka->Height)
+                           if(Paletka_Prawa->Top-Pileczka->Width/2 < Pileczka->Top+Pileczka->Height
+                           && Paletka_Prawa->Top+Paletka_Prawa->Height/4 > Pileczka->Top+Pileczka->Height)
                            {
-                           wspolrzedna_x=-2*wspolrzedna_x;
-                           ilosc_odbic +=1;
-                           suma_odbic = IntToStr(ilosc_odbic);
-                           Label2->Caption = "Licznik odbic: "+suma_odbic;
+                                wspolrzedna_x=-wspolrzedna_x;
+                                ilosc_odbic +=1;
+                                suma_odbic = IntToStr(ilosc_odbic);
+                                Label2->Caption = "Licznik odbic: "+suma_odbic;
                            }
-
+                           else if (Paletka_Prawa->Top+Paletka_Prawa->Height/4 <= Pileczka->Top+Pileczka->Height &&
+                                    Paletka_Prawa->Top+(3*Paletka_Prawa->Height)/4 >= Pileczka->Top+Pileczka->Height)
+                                    {
+                                        wspolrzedna_x=-1.5*wspolrzedna_x;
+                                        ilosc_odbic +=1;
+                                        suma_odbic = IntToStr(ilosc_odbic);
+                                        Label2->Caption = "Licznik odbic: "+suma_odbic;
+                                    }
+                           else if (Paletka_Prawa->Top+(3*Paletka_Prawa->Height)/4 < Pileczka->Top+Pileczka->Height &&
+                                    Paletka_Prawa->Top+Paletka_Prawa->Height/*+Pileczka->Width/2*/ > Pileczka->Top+Pileczka->Height)
+                                    {
+                                        wspolrzedna_x=-wspolrzedna_x;
+                                        ilosc_odbic +=1;
+                                        suma_odbic = IntToStr(ilosc_odbic);
+                                        Label2->Caption = "Licznik odbic: "+suma_odbic;
+                                    }
 
 
 
