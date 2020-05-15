@@ -22,11 +22,10 @@ __published:	// IDE-managed Components
         TTimer *Dol_Lewa;
         TTimer *Dol_Prawa;
         TTimer *Gora_Prawa;
-        TLabel *Label1;
-        TButton *Button2;
-        TLabel *Label2;
-        TLabel *Label3;
-        TLabel *Label4;
+        TLabel *wynik;
+        TButton *start_gry;
+        TLabel *licznik;
+        TLabel *kto_wygrywa;
         void __fastcall poruszanie_pilkiTimer(TObject *Sender);
         void __fastcall Gora_LewaTimer(TObject *Sender);
         void __fastcall Dol_LewaTimer(TObject *Sender);
@@ -36,7 +35,7 @@ __published:	// IDE-managed Components
           TShiftState Shift);
         void __fastcall Gora_PrawaTimer(TObject *Sender);
         void __fastcall Dol_PrawaTimer(TObject *Sender);
-        void __fastcall Button2Click(TObject *Sender);
+        void __fastcall start_gryClick(TObject *Sender);
         void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
         void __fastcall FormCreate(TObject *Sender);
 private:	// User declarations

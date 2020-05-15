@@ -138,12 +138,12 @@ void __fastcall TForm1::poruszanie_pilkiTimer(TObject *Sender)
         {
                 poruszanie_pilki->Enabled = false;
                 Pileczka->Visible = false;
-                Label3->Caption ="Wygrywa gracz niebieski!";
-                Label3->Visible = true;
+                kto_wygrywa->Caption ="Wygrywa gracz niebieski!";
+                kto_wygrywa->Visible = true;
                 punkty_prawego +=1;
                 punktacja_prawego = IntToStr(punkty_prawego);
                 punktacja_lewego = IntToStr(punkty_lewego);
-                Label1->Caption = pokazWynik(punktacja_lewego,punktacja_prawego);
+                wynik->Caption = pokazWynik(punktacja_lewego,punktacja_prawego);
                 ilosc_odbic =0;
                 Gora_Lewa->Enabled = false;
                 Dol_Lewa->Enabled = false;
@@ -152,12 +152,12 @@ void __fastcall TForm1::poruszanie_pilkiTimer(TObject *Sender)
 
                 if (decyzja()==false)
                 {
-                        totalny_reset(Tlo,Label1,Label2,Label3,Button2,Pileczka,Paletka_Lewa,Paletka_Prawa,poruszanie_pilki);
+                        totalny_reset(Tlo,wynik,licznik,kto_wygrywa,start_gry,Pileczka,Paletka_Lewa,Paletka_Prawa,poruszanie_pilki);
                         Form1->Close();
                 }
                 else {
-                        Button2->Visible = true;
-                        Label2->Caption = "Licznik odbic: 0 ";
+                        start_gry->Visible = true;
+                        licznik->Caption = "Licznik odbic: 0 ";
                         reset(Pileczka,poruszanie_pilki,Tlo,punkty_lewego,punkty_prawego,ilosc_odbic,Paletka_Lewa,Paletka_Prawa);
                 }
         }
@@ -165,25 +165,25 @@ void __fastcall TForm1::poruszanie_pilkiTimer(TObject *Sender)
         {      {
                 poruszanie_pilki->Enabled = false;
                 Pileczka->Visible = false;
-                Label3->Caption ="Wygrywa gracz czerwony!";
-                Label3->Visible = true;
+                kto_wygrywa->Caption ="Wygrywa gracz czerwony!";
+                kto_wygrywa->Visible = true;
                 punkty_lewego +=1;
                 punktacja_prawego = IntToStr(punkty_prawego);
                 punktacja_lewego = IntToStr(punkty_lewego);
-                Label1->Caption = pokazWynik(punktacja_lewego,punktacja_prawego);
+                wynik->Caption = pokazWynik(punktacja_lewego,punktacja_prawego);
                 Gora_Lewa->Enabled = false;
                 Dol_Lewa->Enabled = false;
                 Gora_Prawa->Enabled = false;
                 Dol_Prawa->Enabled = false;
                 if (decyzja()==false)
                 {
-                        totalny_reset(Tlo,Label1,Label2,Label3,Button2,Pileczka,Paletka_Lewa,Paletka_Prawa,poruszanie_pilki);
+                        totalny_reset(Tlo,wynik,licznik,kto_wygrywa,start_gry,Pileczka,Paletka_Lewa,Paletka_Prawa,poruszanie_pilki);
                         Form1->Close();
                 }
                 else
                 {
-                Button2->Visible = true;
-                Label2->Caption = "Licznik odbic: 0 ";
+                start_gry->Visible = true;
+                licznik->Caption = "Licznik odbic: 0 ";
                 reset(Pileczka,poruszanie_pilki,Tlo,punkty_lewego,punkty_prawego,ilosc_odbic,Paletka_Lewa,Paletka_Prawa);
                 }
                 }
@@ -196,7 +196,7 @@ void __fastcall TForm1::poruszanie_pilkiTimer(TObject *Sender)
                                 wspolrzedna_x=-wspolrzedna_x;
                                 ilosc_odbic +=1;
                                 suma_odbic = IntToStr(ilosc_odbic);
-                                Label2->Caption = "Licznik odbic: "+suma_odbic;
+                                licznik->Caption = "Licznik odbic: "+suma_odbic;
                            }
                            else if(Paletka_Lewa->Top+Paletka_Lewa->Height/4 <= Pileczka->Top &&
                                    Paletka_Lewa->Top+(3*Paletka_Lewa->Height)/4 >= Pileczka->Top)
@@ -204,7 +204,7 @@ void __fastcall TForm1::poruszanie_pilkiTimer(TObject *Sender)
                                         wspolrzedna_x=-1.5*wspolrzedna_x;
                                         ilosc_odbic +=1;
                                         suma_odbic = IntToStr(ilosc_odbic);
-                                        Label2->Caption = "Licznik odbic: "+suma_odbic;
+                                        licznik->Caption = "Licznik odbic: "+suma_odbic;
                                    }
                            else if(Paletka_Lewa->Top+(3*Paletka_Lewa->Height)/4 < Pileczka->Top &&
                                    Paletka_Lewa->Top+Paletka_Lewa->Height+Pileczka->Width/2 > Pileczka->Top)
@@ -212,7 +212,7 @@ void __fastcall TForm1::poruszanie_pilkiTimer(TObject *Sender)
                                         wspolrzedna_x=-wspolrzedna_x;
                                         ilosc_odbic +=1;
                                         suma_odbic = IntToStr(ilosc_odbic);
-                                        Label2->Caption = "Licznik odbic: "+suma_odbic;
+                                        licznik->Caption = "Licznik odbic: "+suma_odbic;
                                    }
                    }
        else if(Pileczka->Left+Pileczka->Width > Paletka_Prawa->Left)
@@ -223,7 +223,7 @@ void __fastcall TForm1::poruszanie_pilkiTimer(TObject *Sender)
                                 wspolrzedna_x=-wspolrzedna_x;
                                 ilosc_odbic +=1;
                                 suma_odbic = IntToStr(ilosc_odbic);
-                                Label2->Caption = "Licznik odbic: "+suma_odbic;
+                                licznik->Caption = "Licznik odbic: "+suma_odbic;
                            }
                            else if (Paletka_Prawa->Top+Paletka_Prawa->Height/4 <= Pileczka->Top+Pileczka->Height &&
                                     Paletka_Prawa->Top+(3*Paletka_Prawa->Height)/4 >= Pileczka->Top+Pileczka->Height)
@@ -231,7 +231,7 @@ void __fastcall TForm1::poruszanie_pilkiTimer(TObject *Sender)
                                         wspolrzedna_x=-1.5*wspolrzedna_x;
                                         ilosc_odbic +=1;
                                         suma_odbic = IntToStr(ilosc_odbic);
-                                        Label2->Caption = "Licznik odbic: "+suma_odbic;
+                                        licznik->Caption = "Licznik odbic: "+suma_odbic;
                                     }
                            else if (Paletka_Prawa->Top+(3*Paletka_Prawa->Height)/4 < Pileczka->Top+Pileczka->Height &&
                                     Paletka_Prawa->Top+Paletka_Prawa->Height+Pileczka->Width/2 > Pileczka->Top+Pileczka->Height)
@@ -239,7 +239,7 @@ void __fastcall TForm1::poruszanie_pilkiTimer(TObject *Sender)
                                         wspolrzedna_x=-wspolrzedna_x;
                                         ilosc_odbic +=1;
                                         suma_odbic = IntToStr(ilosc_odbic);
-                                        Label2->Caption = "Licznik odbic: "+suma_odbic;
+                                        licznik->Caption = "Licznik odbic: "+suma_odbic;
                                     }
         }
 }
@@ -288,16 +288,16 @@ void __fastcall TForm1::FormKeyUp(TObject *Sender, WORD &Key,
 
 //---------------------------------------------------------------------------
 
-void __fastcall TForm1::Button2Click(TObject *Sender)
+void __fastcall TForm1::start_gryClick(TObject *Sender)
 {
      Pileczka->Visible = true;
      poruszanie_pilki->Enabled = true;
      Paletka_Lewa->Visible = true;
      Paletka_Prawa->Visible = true;
-     Label1->Visible = true;
-     Button2->Visible = false;
-     Label2->Visible = true;
-     Label3->Visible = false;
+     wynik->Visible = true;
+     start_gry->Visible = false;
+     licznik->Visible = true;
+     kto_wygrywa->Visible = false;
      ilosc_odbic=0;
 
 }
@@ -307,19 +307,19 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
 void __fastcall TForm1::FormClose(TObject *Sender, TCloseAction &Action)
 {
        Form2->Visible = true;
-       totalny_reset(Tlo,Label1,Label2,Label3,Button2,Pileczka,Paletka_Lewa,Paletka_Prawa,poruszanie_pilki);
+       totalny_reset(Tlo,wynik,licznik,kto_wygrywa,start_gry,Pileczka,Paletka_Lewa,Paletka_Prawa,poruszanie_pilki);
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TForm1::FormCreate(TObject *Sender)
 {
-        Button2->Visible=true;
+        start_gry->Visible=true;
         Pileczka->Visible = false;
         poruszanie_pilki->Enabled = false;
         Paletka_Lewa->Visible = false;
         Paletka_Prawa->Visible = false;
-        Label1->Visible = false;
-        Label2->Visible = false;
+        wynik->Visible = false;
+        licznik->Visible = false;
 
         wspolrzedna_x = -8;
         wspolrzedna_y = -8;
@@ -330,8 +330,8 @@ void __fastcall TForm1::FormCreate(TObject *Sender)
         punktacja_prawego="";
         punktacja_lewego="";
 
-        Label1->Caption = "0:0";
-        Label3->Visible = false;
+        wynik->Caption = "0:0";
+        kto_wygrywa->Visible = false;
 }
 //---------------------------------------------------------------------------
 

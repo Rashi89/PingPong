@@ -1,7 +1,6 @@
 object Form1: TForm1
   Left = 240
   Top = 174
-  BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsToolWindow
   Caption = 'Ping Pong'
   ClientHeight = 563
@@ -423,7 +422,7 @@ object Form1: TForm1
     Transparent = True
     Visible = False
   end
-  object Label1: TLabel
+  object wynik: TLabel
     Left = 464
     Top = 24
     Width = 49
@@ -437,7 +436,7 @@ object Form1: TForm1
     ParentFont = False
     Transparent = True
   end
-  object Label2: TLabel
+  object licznik: TLabel
     Left = 432
     Top = 520
     Width = 134
@@ -451,7 +450,7 @@ object Form1: TForm1
     ParentFont = False
     Transparent = True
   end
-  object Label3: TLabel
+  object kto_wygrywa: TLabel
     Left = 320
     Top = 113
     Width = 10
@@ -463,19 +462,7 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Label4: TLabel
-    Left = 448
-    Top = 456
-    Width = 10
-    Height = 36
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -31
-    Font.Name = 'MS Sans Serif'
-    Font.Style = [fsBold]
-    ParentFont = False
-  end
-  object Button2: TButton
+  object start_gry: TButton
     Left = 408
     Top = 272
     Width = 177
@@ -488,7 +475,7 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
-    OnClick = Button2Click
+    OnClick = start_gryClick
   end
   object poruszanie_pilki: TTimer
     Interval = 20

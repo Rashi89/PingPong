@@ -15,24 +15,24 @@
 class TForm2 : public TForm
 {
 __published:	// IDE-managed Components
-        TImage *Image1;
-        TImage *Image2;
+        TImage *Menu;
+        TImage *Lapki;
         TShape *Shape1;
-        TImage *Image5;
-        TImage *Image6;
-        TImage *Image3;
-        TImage *Image4;
-        TImage *Image7;
-        TImage *Image8;
-        TImage *Image9;
-        TImage *Image10;
-        void __fastcall Image7MouseDown(TObject *Sender,
+        TImage *lapka_czarna1;
+        TImage *lapka_czerwona1;
+        TImage *lapka_czerwona2;
+        TImage *lapka_czarna2;
+        TImage *NowaGra;
+        TImage *Sterowanie;
+        TImage *Zasady;
+        TImage *Koniec;
+        void __fastcall NowaGraMouseDown(TObject *Sender,
           TMouseButton Button, TShiftState Shift, int X, int Y);
-        void __fastcall Image8MouseDown(TObject *Sender,
+        void __fastcall SterowanieMouseDown(TObject *Sender,
           TMouseButton Button, TShiftState Shift, int X, int Y);
-        void __fastcall Image9MouseDown(TObject *Sender,
+        void __fastcall ZasadyMouseDown(TObject *Sender,
           TMouseButton Button, TShiftState Shift, int X, int Y);
-        void __fastcall Image10MouseDown(TObject *Sender,
+        void __fastcall KoniecMouseDown(TObject *Sender,
           TMouseButton Button, TShiftState Shift, int X, int Y);
 
 private:	// User declarations
