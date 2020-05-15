@@ -5,6 +5,7 @@
 
 #include "Unit1.h"
 #include "Unit2.h"
+#include "Unit3.h"
 
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
@@ -82,6 +83,15 @@ bool decyzja()
       }
 }
 
+int kto_zaczyna()
+{
+        randomize();
+        if(random(4)==0) return 1;
+        else if(random(4)==1) return 2;
+        else if(random(4)==2) return 3;
+        else if(random(4)==3) return 4;
+}
+
 TForm1 *Form1;
 //---------------------------------------------------------------------------
 __fastcall TForm1::TForm1(TComponent* Owner)
@@ -152,7 +162,36 @@ void __fastcall TForm1::poruszanie_pilkiTimer(TObject *Sender)
 
                 if (decyzja()==false)
                 {
+                        if(punkty_lewego > punkty_prawego)
+                        {
+                          Form3->remis->Visible = false;
+                          Form3->remis_ok->Visible = false;
+                          Form3->czerwony_win->Visible = true;
+                          Form3->czerwony_ok->Visible = true;
+                          Form3->niebieski_win->Visible = false;
+                          Form3->niebieski_ok->Visible = false;
+                        }
+                        else if(punkty_lewego < punkty_prawego)
+                        {
+                          Form3->remis->Visible = false;
+                          Form3->remis_ok->Visible = false;
+                          Form3->czerwony_win->Visible = false;
+                          Form3->czerwony_ok->Visible = false;
+                          Form3->niebieski_win->Visible = true;
+                          Form3->niebieski_ok->Visible = true;
+                        }
+                        else if(punkty_lewego==punkty_prawego)
+                        {
+                          Form3->remis->Visible = true;
+                          Form3->remis_ok->Visible = true;
+                          Form3->czerwony_win->Visible = false;
+                          Form3->czerwony_ok->Visible = false;
+                          Form3->niebieski_win->Visible = false;
+                          Form3->niebieski_ok->Visible = false;
+                        }
+                        Form3->ShowModal();
                         totalny_reset(Tlo,wynik,licznik,kto_wygrywa,start_gry,Pileczka,Paletka_Lewa,Paletka_Prawa,poruszanie_pilki);
+                        Form1->Visible = false;
                         Form1->Close();
                 }
                 else {
@@ -177,7 +216,36 @@ void __fastcall TForm1::poruszanie_pilkiTimer(TObject *Sender)
                 Dol_Prawa->Enabled = false;
                 if (decyzja()==false)
                 {
+                        if(punkty_lewego > punkty_prawego)
+                        {
+                          Form3->remis->Visible = false;
+                          Form3->remis_ok->Visible = false;
+                          Form3->czerwony_win->Visible = true;
+                          Form3->czerwony_ok->Visible = true;
+                          Form3->niebieski_win->Visible = false;
+                          Form3->niebieski_ok->Visible = false;
+                        }
+                        else if(punkty_lewego < punkty_prawego)
+                        {
+                          Form3->remis->Visible = false;
+                          Form3->remis_ok->Visible = false;
+                          Form3->czerwony_win->Visible = false;
+                          Form3->czerwony_ok->Visible = false;
+                          Form3->niebieski_win->Visible = true;
+                          Form3->niebieski_ok->Visible = true;
+                        }
+                        else if(punkty_lewego==punkty_prawego)
+                        {
+                          Form3->remis->Visible = true;
+                          Form3->remis_ok->Visible = true;
+                          Form3->czerwony_win->Visible = false;
+                          Form3->czerwony_ok->Visible = false;
+                          Form3->niebieski_win->Visible = false;
+                          Form3->niebieski_ok->Visible = false;
+                        }
+                        Form3->ShowModal();
                         totalny_reset(Tlo,wynik,licznik,kto_wygrywa,start_gry,Pileczka,Paletka_Lewa,Paletka_Prawa,poruszanie_pilki);
+                        Form1->Visible = false;
                         Form1->Close();
                 }
                 else

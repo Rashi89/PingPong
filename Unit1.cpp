@@ -29,7 +29,14 @@
    punktacja = punktacja_lewego+":"+punktacja_prawego;
    return punktacja;
  }
-
+ int kto_zaczyna()
+{
+        randomize();
+        if(random(4)==0) return 1;
+        else if(random(4)==1) return 2;
+        else if(random(4)==2) return 3;
+        else if(random(4)==3) return 4;
+}
  void reset(TImage * Pileczka, TTimer * poruszanie_pilki, TShape * Tlo,int punkty_lewego_gracza,int punkty_prawego_gracza, int ilosc_odbic_gracza,TImage *Paletka_Lewa, TImage *Paletka_Prawa)
  {
         ilosc_odbic=0;
@@ -37,8 +44,26 @@
         punkty_prawego=punkty_prawego_gracza;
         Pileczka->Left = Tlo->Width/2;
         Pileczka->Top = Tlo->Height/2;
+        if(kto_zaczyna()==1)
+        {
+                wspolrzedna_x = 8;
+                wspolrzedna_y = 8;
+        }
+        else if(kto_zaczyna()==2)
+        {
+                wspolrzedna_x = -8;
+                wspolrzedna_y = 8;
+        }
+        else if(kto_zaczyna()==3)
+        {
         wspolrzedna_x = -8;
         wspolrzedna_y = -8;
+        }
+        else if(kto_zaczyna()==4)
+        {
+                wspolrzedna_x = 8;
+                wspolrzedna_y = -8;
+        }
         Paletka_Lewa->Top = 192;
         Paletka_Prawa->Top = 192;
         poruszanie_pilki->Interval = 20;
@@ -52,8 +77,26 @@
            Paletka_Prawa->Visible =  false;
            poruszanie_pilki->Enabled = false;
            poruszanie_pilki->Interval = 20;
-           wspolrzedna_x = -8;
-           wspolrzedna_y = -8;
+           if(kto_zaczyna()==1)
+        {
+                wspolrzedna_x = 8;
+                wspolrzedna_y = 8;
+        }
+        else if(kto_zaczyna()==2)
+        {
+                wspolrzedna_x = -8;
+                wspolrzedna_y = 8;
+        }
+        else if(kto_zaczyna()==3)
+        {
+        wspolrzedna_x = -8;
+        wspolrzedna_y = -8;
+        }
+        else if(kto_zaczyna()==4)
+        {
+                wspolrzedna_x = 8;
+                wspolrzedna_y = -8;
+        }
            punkty_lewego = 0;
            punkty_prawego = 0;
            ilosc_odbic = 0;
@@ -82,6 +125,8 @@ bool decyzja()
                 return false;
       }
 }
+
+
 
 TForm1 *Form1;
 //---------------------------------------------------------------------------
@@ -155,19 +200,35 @@ void __fastcall TForm1::poruszanie_pilkiTimer(TObject *Sender)
                 {
                         if(punkty_lewego > punkty_prawego)
                         {
+                          Form3->remis->Visible = false;
+                          Form3->remis_ok->Visible = false;
                           Form3->czerwony_win->Visible = true;
                           Form3->czerwony_ok->Visible = true;
+                          Form3->niebieski_win->Visible = false;
+                          Form3->niebieski_ok->Visible = false;
                         }
                         else if(punkty_lewego < punkty_prawego)
                         {
+                          Form3->remis->Visible = false;
+                          Form3->remis_ok->Visible = false;
                           Form3->czerwony_win->Visible = false;
                           Form3->czerwony_ok->Visible = false;
                           Form3->niebieski_win->Visible = true;
                           Form3->niebieski_ok->Visible = true;
                         }
-                        Form3->Visible = true;
+                        else if(punkty_lewego==punkty_prawego)
+                        {
+                          Form3->remis->Visible = true;
+                          Form3->remis_ok->Visible = true;
+                          Form3->czerwony_win->Visible = false;
+                          Form3->czerwony_ok->Visible = false;
+                          Form3->niebieski_win->Visible = false;
+                          Form3->niebieski_ok->Visible = false;
+                        }
+                        Form3->ShowModal();
                         totalny_reset(Tlo,wynik,licznik,kto_wygrywa,start_gry,Pileczka,Paletka_Lewa,Paletka_Prawa,poruszanie_pilki);
                         Form1->Visible = false;
+                        Form1->Close();
                 }
                 else {
                         start_gry->Visible = true;
@@ -193,19 +254,35 @@ void __fastcall TForm1::poruszanie_pilkiTimer(TObject *Sender)
                 {
                         if(punkty_lewego > punkty_prawego)
                         {
+                          Form3->remis->Visible = false;
+                          Form3->remis_ok->Visible = false;
                           Form3->czerwony_win->Visible = true;
                           Form3->czerwony_ok->Visible = true;
+                          Form3->niebieski_win->Visible = false;
+                          Form3->niebieski_ok->Visible = false;
                         }
                         else if(punkty_lewego < punkty_prawego)
                         {
+                          Form3->remis->Visible = false;
+                          Form3->remis_ok->Visible = false;
                           Form3->czerwony_win->Visible = false;
                           Form3->czerwony_ok->Visible = false;
                           Form3->niebieski_win->Visible = true;
                           Form3->niebieski_ok->Visible = true;
                         }
-                        Form3->Visible = true;
+                        else if(punkty_lewego==punkty_prawego)
+                        {
+                          Form3->remis->Visible = true;
+                          Form3->remis_ok->Visible = true;
+                          Form3->czerwony_win->Visible = false;
+                          Form3->czerwony_ok->Visible = false;
+                          Form3->niebieski_win->Visible = false;
+                          Form3->niebieski_ok->Visible = false;
+                        }
+                        Form3->ShowModal();
                         totalny_reset(Tlo,wynik,licznik,kto_wygrywa,start_gry,Pileczka,Paletka_Lewa,Paletka_Prawa,poruszanie_pilki);
-                        Form1->Visible = false;;
+                        Form1->Visible = false;
+                        Form1->Close();
                 }
                 else
                 {
@@ -348,8 +425,26 @@ void __fastcall TForm1::FormCreate(TObject *Sender)
         wynik->Visible = false;
         licznik->Visible = false;
 
+        if(kto_zaczyna()==1)
+        {
+                wspolrzedna_x = 8;
+                wspolrzedna_y = 8;
+        }
+        else if(kto_zaczyna()==2)
+        {
+                wspolrzedna_x = -8;
+                wspolrzedna_y = 8;
+        }
+        else if(kto_zaczyna()==3)
+        {
         wspolrzedna_x = -8;
         wspolrzedna_y = -8;
+        }
+        else if(kto_zaczyna()==4)
+        {
+                wspolrzedna_x = 8;
+                wspolrzedna_y = -8;
+        }
         punkty_lewego = 0;
         punkty_prawego = 0;
         ilosc_odbic = 0;
