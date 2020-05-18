@@ -46,3 +46,4 @@ void __fastcall TForm3::FormClose(TObject *Sender, TCloseAction &Action)
         Form3->Close();
 }
 //---------------------------------------------------------------------------
+

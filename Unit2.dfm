@@ -1,6 +1,6 @@
 object Form2: TForm2
-  Left = 480
-  Top = 115
+  Left = 491
+  Top = 113
   BorderIcons = [biSystemMenu]
   BorderStyle = bsToolWindow
   Caption = 'Menu'
@@ -13,6 +13,7 @@ object Form2: TForm2
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   OldCreateOrder = False
+  Position = poScreenCenter
   Visible = True
   PixelsPerInch = 96
   TextHeight = 13

@@ -5,6 +5,7 @@
 
 #include "Unit1.h"
 #include "Unit2.h"
+#include "Unit3.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -17,15 +18,16 @@ __fastcall TForm2::TForm2(TComponent* Owner)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TForm2::Image7MouseDown(TObject *Sender,
+void __fastcall TForm2::NowaGraMouseDown(TObject *Sender,
       TMouseButton Button, TShiftState Shift, int X, int Y)
 {
          Form1->Visible = true;
          Form2->Visible = false;
+         Form3->Visible = false;
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TForm2::Image8MouseDown(TObject *Sender,
+void __fastcall TForm2::SterowanieMouseDown(TObject *Sender,
       TMouseButton Button, TShiftState Shift, int X, int Y)
 {
              Application->MessageBox("Gracz czerwony steruje klawiszami: W i S.\n"
@@ -34,7 +36,7 @@ void __fastcall TForm2::Image8MouseDown(TObject *Sender,
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TForm2::Image9MouseDown(TObject *Sender,
+void __fastcall TForm2::ZasadyMouseDown(TObject *Sender,
       TMouseButton Button, TShiftState Shift, int X, int Y)
 {
     Application->MessageBox("ZASADY\n"
@@ -45,10 +47,11 @@ void __fastcall TForm2::Image9MouseDown(TObject *Sender,
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TForm2::Image10MouseDown(TObject *Sender,
+void __fastcall TForm2::KoniecMouseDown(TObject *Sender,
       TMouseButton Button, TShiftState Shift, int X, int Y)
 {
                Form2->Close();  
 }
 //---------------------------------------------------------------------------
+
 

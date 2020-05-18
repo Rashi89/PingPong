@@ -1,6 +1,6 @@
 object Form2: TForm2
-  Left = 882
-  Top = 206
+  Left = 480
+  Top = 115
   BorderIcons = [biSystemMenu]
   BorderStyle = bsToolWindow
   Caption = 'Menu'
@@ -23,7 +23,7 @@ object Form2: TForm2
     Height = 371
     Align = alClient
   end
-  object Image1: TImage
+  object Menu: TImage
     Left = 88
     Top = 8
     Width = 232
@@ -2275,7 +2275,7 @@ object Form2: TForm2
       FFFFFFFFFFFFFFFFFFFF}
     Transparent = True
   end
-  object Image2: TImage
+  object Lapki: TImage
     Left = 304
     Top = 16
     Width = 65
@@ -2893,7 +2893,7 @@ object Form2: TForm2
       FFFFFFFFFFFFFFFFFFFFFFFFFF00}
     Transparent = True
   end
-  object Image5: TImage
+  object lapka_czarna1: TImage
     Left = 64
     Top = 208
     Width = 32
@@ -2983,7 +2983,7 @@ object Form2: TForm2
       FFFF}
     Transparent = True
   end
-  object Image6: TImage
+  object lapka_czerwona1: TImage
     Left = 64
     Top = 160
     Width = 32
@@ -3073,7 +3073,7 @@ object Form2: TForm2
       FFFF}
     Transparent = True
   end
-  object Image3: TImage
+  object lapka_czerwona2: TImage
     Left = 64
     Top = 264
     Width = 32
@@ -3162,7 +3162,7 @@ object Form2: TForm2
       EC3838EC3838ECF5F5FEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFF}
   end
-  object Image4: TImage
+  object lapka_czarna2: TImage
     Left = 64
     Top = 312
     Width = 32
@@ -3251,7 +3251,7 @@ object Form2: TForm2
       060707078C8C8CFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFF}
   end
-  object Image7: TImage
+  object NowaGra: TImage
     Left = 104
     Top = 152
     Width = 241
@@ -4122,13 +4122,14 @@ object Form2: TForm2
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00}
     Transparent = True
-    OnMouseDown = Image7MouseDown
+    OnMouseDown = NowaGraMouseDown
   end
-  object Image8: TImage
+  object Sterowanie: TImage
     Left = 104
     Top = 200
     Width = 300
     Height = 42
+    Cursor = crHandPoint
     AutoSize = True
     Picture.Data = {
       07544269746D6170DE930000424DDE9300000000000036000000280000002C01
@@ -5316,13 +5317,14 @@ object Form2: TForm2
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFF}
     Transparent = True
-    OnMouseDown = Image8MouseDown
+    OnMouseDown = SterowanieMouseDown
   end
-  object Image9: TImage
+  object Zasady: TImage
     Left = 104
     Top = 248
     Width = 295
     Height = 50
+    Cursor = crHandPoint
     AutoSize = True
     Picture.Data = {
       07544269746D6170A6AD0000424DA6AD00000000000036000000280000002701
@@ -6716,13 +6718,14 @@ object Form2: TForm2
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000}
     Transparent = True
-    OnMouseDown = Image9MouseDown
+    OnMouseDown = ZasadyMouseDown
   end
-  object Image10: TImage
+  object Koniec: TImage
     Left = 104
     Top = 304
     Width = 288
     Height = 47
+    Cursor = crHandPoint
     AutoSize = True
     Picture.Data = {
       07544269746D6170D69E0000424DD69E00000000000036000000280000002001
@@ -7998,6 +8001,6 @@ object Form2: TForm2
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFF}
     Transparent = True
-    OnMouseDown = Image10MouseDown
+    OnMouseDown = KoniecMouseDown
   end
 end

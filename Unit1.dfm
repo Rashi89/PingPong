@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 270
-  Top = 147
+  Left = 720
+  Top = 360
   BorderStyle = bsToolWindow
   Caption = 'Ping Pong'
   ClientHeight = 563
@@ -14,7 +14,7 @@ object Form1: TForm1
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   OldCreateOrder = False
-  Position = poDesktopCenter
+  Position = poScreenCenter
   OnClose = FormClose
   OnCreate = FormCreate
   OnKeyDown = FormKeyDown

@@ -41,7 +41,7 @@ void __fastcall TForm2::ZasadyMouseDown(TObject *Sender,
 {
     Application->MessageBox("ZASADY\n"
                  "1. Ka¿dy z graczy steruje swoj¹ paletk¹.\n"
-                 "2. Kiedy pi³ka odbije siê na brzegach paletki, wówczas\n"
+                 "2. Kiedy pi³ka odbije siê na œrodku paletki, wówczas\n"
                  "    pi³eczka zmieni k¹t odbicia i przyspieszy\n"
                  "3. Po 9 odbiciach pi³eczka przyspieszy\n","Zasady",MB_OK | MB_ICONINFORMATION);
 }

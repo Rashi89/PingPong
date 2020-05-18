@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 514
-  Top = 255
+  Left = 270
+  Top = 147
   BorderStyle = bsToolWindow
   Caption = 'Ping Pong'
   ClientHeight = 563
